@@ -15,6 +15,7 @@
 		6BD37E772B31B1E3000F083B /* MetStoreDevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E762B31B1E3000F083B /* MetStoreDevData.swift */; };
 		6BD37E792B31B20A000F083B /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E782B31B20A000F083B /* Object.swift */; };
 		6BD37E7B2B31B27F000F083B /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E7A2B31B27F000F083B /* SafariView.swift */; };
+		6BD37E7D2B31B2BC000F083B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E7C2B31B2BC000F083B /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		6BD37E762B31B1E3000F083B /* MetStoreDevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetStoreDevData.swift; sourceTree = "<group>"; };
 		6BD37E782B31B20A000F083B /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		6BD37E7A2B31B27F000F083B /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		6BD37E7C2B31B2BC000F083B /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				6BD37E742B31B1C6000F083B /* TheMetStore.swift */,
 				6BD37E782B31B20A000F083B /* Object.swift */,
 				6BD37E7A2B31B27F000F083B /* SafariView.swift */,
+				6BD37E7C2B31B2BC000F083B /* ColorExtension.swift */,
 				6BD37E6A2B31AF19000F083B /* Assets.xcassets */,
 				6BD37E6C2B31AF19000F083B /* Preview Content */,
 			);
@@ -154,6 +157,7 @@
 				6BD37E692B31AF18000F083B /* ContentView.swift in Sources */,
 				6BD37E752B31B1C6000F083B /* TheMetStore.swift in Sources */,
 				6BD37E7B2B31B27F000F083B /* SafariView.swift in Sources */,
+				6BD37E7D2B31B2BC000F083B /* ColorExtension.swift in Sources */,
 				6BD37E672B31AF18000F083B /* TheMetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
