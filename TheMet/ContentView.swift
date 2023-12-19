@@ -13,23 +13,43 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(store.objects, id: \.objectID) { object in
-                NavigationLink {
-                    SafariView(url: URL(string: object.objectURL)!)
-                } label: {
-                    HStack {
+                if !object.isPublicDomain,
+                   let url = URL(string: object.objectURL) {
+                    NavigationLink(value: url) {
+                        WebIndicatorView(title: object.title)
+                    }
+                } else {
+                    NavigationLink(value: object) {
                         Text(object.title)
-                        Spacer()
-                        Image(systemName: "rectangle.portrait.and.arrow.right.fill")
-                            .font(.footnote)
                     }
                 }
-
             }
             .navigationTitle("The Met")
+            .navigationDestination(for: URL.self) { url in
+                SafariView(url: url)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .ignoresSafeArea()
+            }
+            .navigationDestination(for: Object.self) { object in
+                ObjectView(object: object)
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+}
+
+struct WebIndicatorView: View {
+    let title: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+                .font(.footnote)
+        }
+    }
 }
