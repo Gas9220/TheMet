@@ -12,10 +12,23 @@ struct ObjectView: View {
 
     var body: some View {
         VStack {
-            Text(object.title)
-                .multilineTextAlignment(.leading)
-                .font(.callout)
-                .frame(minHeight: 44)
+            if let url = URL(string: object.objectURL) {
+                Link(destination: url) {
+                    WebIndicatorView(title: object.title)
+                        .multilineTextAlignment(.leading)
+                        .font(.callout)
+                        .frame(minHeight: 44)
+                        .padding()
+                        .background(Color.metBackground)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+            } else {
+                Text(object.title)
+                    .multilineTextAlignment(.leading)
+                    .font(.callout)
+                    .frame(minHeight: 44)
+            }
 
             if object.isPublicDomain {
                 AsyncImage(url: URL(string: object.primaryImageSmall)) { image in
@@ -26,7 +39,7 @@ struct ObjectView: View {
                     PlaceholderView(note: "Display image here")
                 }
             } else {
-                PlaceholderView(note: "Image not in public domain.")
+                PlaceholderView(note: "Image not in public domain. URL not valid")
             }
 
             Text(object.creditLine)
