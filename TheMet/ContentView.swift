@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var store = TheMetStore()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(store.objects, id: \.objectID) { object in
+                NavigationLink(object.title) {
+                    ObjectView(object: object)
+                }
+            }
+            .navigationTitle("The Met")
         }
-        .padding()
     }
 }
 
