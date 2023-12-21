@@ -10,22 +10,22 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), object: Object.sample(isPublicDomain: true), emoji: "😀")
+        SimpleEntry(date: Date(), object: Object.sample(isPublicDomain: true))
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), object: Object.sample(isPublicDomain: false), emoji: "😀")
+        let entry = SimpleEntry(date: Date(), object: Object.sample(isPublicDomain: false))
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, object: Object.sample(isPublicDomain: true), emoji: "😀")
+            let entry = SimpleEntry(date: entryDate, object: Object.sample(isPublicDomain: true))
             entries.append(entry)
         }
 
@@ -37,7 +37,6 @@ struct Provider: TimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let object: Object
-    let emoji: String
 }
 
 struct TheMetWidgetEntryView : View {
@@ -47,9 +46,6 @@ struct TheMetWidgetEntryView : View {
         VStack {
             Text("Time:")
             Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
         }
     }
 }
@@ -72,6 +68,6 @@ struct TheMetWidget: Widget {
 #Preview(as: .systemSmall) {
     TheMetWidget()
 } timeline: {
-    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true), emoji: "😀")
-    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true), emoji: "🤩")
+    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true))
+    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true))
 }
