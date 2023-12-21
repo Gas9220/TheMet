@@ -9,6 +9,9 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
+    let store = TheMetStore(6)
+    let query = "persimmon"
+
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), object: Object.sample(isPublicDomain: true))
     }
@@ -23,9 +26,27 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, object: Object.sample(isPublicDomain: true))
+        let interval = 3
+
+        Task {
+            do {
+                try await store.fetchObjects(for: query)
+            } catch {
+                store.objects = [
+                    Object.sample(isPublicDomain: true),
+                    Object.sample(isPublicDomain: false)
+                ]
+            }
+        }
+
+        for index in 0 ..< store.objects.count {
+            let entryDate = Calendar.current.date(
+                byAdding: .second,
+                value: index * interval,
+                to: currentDate)!
+            let entry = SimpleEntry(
+                date: entryDate,
+                object: store.objects[index])
             entries.append(entry)
         }
 
@@ -48,19 +69,19 @@ struct TheMetWidgetEntryView : View {
 }
 
 struct TheMetWidget: Widget {
-  let kind: String = "TheMetWidget"
+    let kind: String = "TheMetWidget"
 
-  var body: some WidgetConfiguration {
-    StaticConfiguration(
-      kind: kind,
-      provider: Provider()
-    ) { entry in
-      TheMetWidgetEntryView(entry: entry)
+    var body: some WidgetConfiguration {
+        StaticConfiguration(
+            kind: kind,
+            provider: Provider()
+        ) { entry in
+            TheMetWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("The Met")
+        .description("View objects from the Metropolitan Museum.")
+        .supportedFamilies([.systemMedium, .systemLarge])
     }
-    .configurationDisplayName("The Met")
-    .description("View objects from the Metropolitan Museum.")
-    .supportedFamilies([.systemMedium, .systemLarge])
-  }
 }
 
 #Preview(as: .systemLarge) {

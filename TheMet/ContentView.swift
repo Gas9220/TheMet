@@ -12,7 +12,7 @@ struct ContentView: View {
 
     @State private var fetchObjectsTask: Task<Void, Error>?
 
-    @State private var query = "rhino"
+    @State private var query = "persimmon"
     @State private var showQueryField = false
 
     var body: some View {

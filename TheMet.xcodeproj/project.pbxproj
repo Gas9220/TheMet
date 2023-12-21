@@ -21,6 +21,9 @@
 		6B2C82F62B34373500B2D8C4 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E7C2B31B2BC000F083B /* ColorExtension.swift */; };
 		6B2C82F92B34375C00B2D8C4 /* SupportingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82F82B34375C00B2D8C4 /* SupportingViews.swift */; };
 		6B2C82FA2B3437A700B2D8C4 /* SupportingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82F82B34375C00B2D8C4 /* SupportingViews.swift */; };
+		6B2C82FB2B343BD600B2D8C4 /* TheMetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E742B31B1C6000F083B /* TheMetStore.swift */; };
+		6B2C82FC2B343BDA00B2D8C4 /* URLComponentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82D52B342AA500B2D8C4 /* URLComponentsExtension.swift */; };
+		6B2C82FD2B343DAC00B2D8C4 /* TheMetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82D72B342B4000B2D8C4 /* TheMetService.swift */; };
 		6BD37E672B31AF18000F083B /* TheMetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E662B31AF18000F083B /* TheMetApp.swift */; };
 		6BD37E692B31AF18000F083B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E682B31AF18000F083B /* ContentView.swift */; };
 		6BD37E6B2B31AF19000F083B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BD37E6A2B31AF19000F083B /* Assets.xcassets */; };
@@ -69,6 +72,8 @@
 		6B2C82EA2B34320C00B2D8C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B2C82F32B3434DD00B2D8C4 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		6B2C82F82B34375C00B2D8C4 /* SupportingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportingViews.swift; sourceTree = "<group>"; };
+		6B2C82FE2B343FF500B2D8C4 /* TheMet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMet.entitlements; sourceTree = "<group>"; };
+		6B2C82FF2B34404A00B2D8C4 /* TheMetWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheMetWidgetExtension.entitlements; sourceTree = "<group>"; };
 		6BD37E632B31AF18000F083B /* TheMet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD37E662B31AF18000F083B /* TheMetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMetApp.swift; sourceTree = "<group>"; };
 		6BD37E682B31AF18000F083B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		6BD37E5A2B31AF18000F083B = {
 			isa = PBXGroup;
 			children = (
+				6B2C82FF2B34404A00B2D8C4 /* TheMetWidgetExtension.entitlements */,
 				6BD37E652B31AF18000F083B /* TheMet */,
 				6B2C82E32B34320A00B2D8C4 /* TheMetWidget */,
 				6B2C82DE2B34320A00B2D8C4 /* Frameworks */,
@@ -145,6 +151,7 @@
 		6BD37E652B31AF18000F083B /* TheMet */ = {
 			isa = PBXGroup;
 			children = (
+				6B2C82FE2B343FF500B2D8C4 /* TheMet.entitlements */,
 				6BD37E662B31AF18000F083B /* TheMetApp.swift */,
 				6BD37E682B31AF18000F083B /* ContentView.swift */,
 				6BD37E742B31B1C6000F083B /* TheMetStore.swift */,
@@ -277,6 +284,9 @@
 				6B2C82F22B3433CB00B2D8C4 /* Object.swift in Sources */,
 				6B2C82F42B3434DE00B2D8C4 /* WidgetView.swift in Sources */,
 				6B2C82E52B34320A00B2D8C4 /* TheMetWidgetBundle.swift in Sources */,
+				6B2C82FC2B343BDA00B2D8C4 /* URLComponentsExtension.swift in Sources */,
+				6B2C82FD2B343DAC00B2D8C4 /* TheMetService.swift in Sources */,
+				6B2C82FB2B343BD600B2D8C4 /* TheMetStore.swift in Sources */,
 				6B2C82F62B34373500B2D8C4 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheMetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A7B95NFWAN;
@@ -328,7 +339,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspare.TheMet.TheMetWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = gaspareTheMet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -342,6 +353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TheMetWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A7B95NFWAN;
@@ -355,7 +367,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspare.TheMet.TheMetWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = gaspareTheMet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -489,6 +501,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMet/TheMet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheMet/Preview Content\"";
@@ -505,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspare.TheMet;
+				PRODUCT_BUNDLE_IDENTIFIER = gaspareTheMet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -519,6 +532,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TheMet/TheMet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheMet/Preview Content\"";
@@ -535,7 +549,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gaspare.TheMet;
+				PRODUCT_BUNDLE_IDENTIFIER = gaspareTheMet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
