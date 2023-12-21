@@ -32,6 +32,7 @@ struct WidgetView: View {
         }
         .truncationMode(.middle)
         .fontWeight(.semibold)
+        .widgetURL(URL(string: "thement://\(entry.object.objectID)"))
         .containerBackground(Color.white, for: .widget)
     }
 }

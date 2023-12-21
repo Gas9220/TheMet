@@ -10,13 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var store = TheMetStore()
 
+    @State private var path = NavigationPath()
+
     @State private var fetchObjectsTask: Task<Void, Error>?
 
-    @State private var query = "persimmon"
+    @State private var query = "peony"
     @State private var showQueryField = false
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 Text("Your searched for '\(query)'")
                     .padding(5)
@@ -83,6 +85,18 @@ struct ContentView: View {
                 try await store.fetchObjects(for: query)
             } catch {
 
+            }
+        }
+        .onOpenURL { url in
+            if let id = url.host,
+               let object = store.objects.first(where: { String($0.objectID) == id }) {
+                if object.isPublicDomain {
+                    path.append(object)
+                } else {
+                    if let url = URL(string: object.objectURL) {
+                        path.append(url)
+                    }
+                }
             }
         }
     }
