@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var store = TheMetStore()
 
+    @State private var fetchObjectsTask: Task<Void, Error>?
+
     @State private var query = "rhino"
     @State private var showQueryField = false
 
@@ -52,7 +54,15 @@ struct ContentView: View {
                 .alert("Search the Met", isPresented: $showQueryField) {
                     TextField("Search the Met", text: $query)
                     Button("Search") {
+                        fetchObjectsTask?.cancel()
+                        fetchObjectsTask = Task {
+                            do {
+                                store.objects = []
+                                try await store.fetchObjects(for: query)
+                            } catch {
 
+                            }
+                        }
                     }
                 }
                 .navigationDestination(for: URL.self) { url in
@@ -63,6 +73,16 @@ struct ContentView: View {
                 .navigationDestination(for: Object.self) { object in
                     ObjectView(object: object)
                 }
+            }
+            .overlay {
+                if store.objects.isEmpty { ProgressView() }
+            }
+        }
+        .task {
+            do {
+                try await store.fetchObjects(for: query)
+            } catch {
+
             }
         }
     }

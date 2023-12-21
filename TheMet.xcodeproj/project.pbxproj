@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2C82D62B342AA500B2D8C4 /* URLComponentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82D52B342AA500B2D8C4 /* URLComponentsExtension.swift */; };
+		6B2C82D82B342B4000B2D8C4 /* TheMetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2C82D72B342B4000B2D8C4 /* TheMetService.swift */; };
 		6BD37E672B31AF18000F083B /* TheMetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E662B31AF18000F083B /* TheMetApp.swift */; };
 		6BD37E692B31AF18000F083B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD37E682B31AF18000F083B /* ContentView.swift */; };
 		6BD37E6B2B31AF19000F083B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BD37E6A2B31AF19000F083B /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B2C82D52B342AA500B2D8C4 /* URLComponentsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLComponentsExtension.swift; sourceTree = "<group>"; };
+		6B2C82D72B342B4000B2D8C4 /* TheMetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMetService.swift; sourceTree = "<group>"; };
 		6BD37E632B31AF18000F083B /* TheMet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD37E662B31AF18000F083B /* TheMetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMetApp.swift; sourceTree = "<group>"; };
 		6BD37E682B31AF18000F083B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,10 +70,12 @@
 				6BD37E662B31AF18000F083B /* TheMetApp.swift */,
 				6BD37E682B31AF18000F083B /* ContentView.swift */,
 				6BD37E742B31B1C6000F083B /* TheMetStore.swift */,
+				6B2C82D72B342B4000B2D8C4 /* TheMetService.swift */,
 				6BD37E782B31B20A000F083B /* Object.swift */,
 				6BD37E7E2B31B364000F083B /* ObjectView.swift */,
 				6BD37E7A2B31B27F000F083B /* SafariView.swift */,
 				6BD37E7C2B31B2BC000F083B /* ColorExtension.swift */,
+				6B2C82D52B342AA500B2D8C4 /* URLComponentsExtension.swift */,
 				6BD37E6A2B31AF19000F083B /* Assets.xcassets */,
 				6BD37E6C2B31AF19000F083B /* Preview Content */,
 			);
@@ -157,11 +163,13 @@
 			files = (
 				6BD37E792B31B20A000F083B /* Object.swift in Sources */,
 				6BD37E772B31B1E3000F083B /* MetStoreDevData.swift in Sources */,
+				6B2C82D62B342AA500B2D8C4 /* URLComponentsExtension.swift in Sources */,
 				6BD37E692B31AF18000F083B /* ContentView.swift in Sources */,
 				6BD37E752B31B1C6000F083B /* TheMetStore.swift in Sources */,
 				6BD37E7B2B31B27F000F083B /* SafariView.swift in Sources */,
 				6BD37E7F2B31B364000F083B /* ObjectView.swift in Sources */,
 				6BD37E7D2B31B2BC000F083B /* ColorExtension.swift in Sources */,
+				6B2C82D82B342B4000B2D8C4 /* TheMetService.swift in Sources */,
 				6BD37E672B31AF18000F083B /* TheMetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
