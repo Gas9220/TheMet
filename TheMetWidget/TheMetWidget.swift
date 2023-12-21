@@ -43,10 +43,7 @@ struct TheMetWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-        }
+        WidgetView(entry: entry)
     }
 }
 
@@ -62,12 +59,13 @@ struct TheMetWidget: Widget {
     }
     .configurationDisplayName("The Met")
     .description("View objects from the Metropolitan Museum.")
+    .supportedFamilies([.systemMedium, .systemLarge])
   }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemLarge) {
     TheMetWidget()
 } timeline: {
     SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true))
-    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: true))
+    SimpleEntry(date: .now, object: Object.sample(isPublicDomain: false))
 }
