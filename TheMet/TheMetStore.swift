@@ -10,7 +10,7 @@ import WidgetKit
 
 extension FileManager {
     static func sharedContainerURL() -> URL {
-        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.gaspareTheMet.TheMet.objects")!
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.gaspare.TheMet.objects")!
     }
 }
 
