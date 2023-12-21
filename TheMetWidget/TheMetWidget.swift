@@ -23,13 +23,12 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        let interval = 3
 
         let objects = readObjects()
         for index in 0 ..< objects.count {
             let entryDate = Calendar.current.date(
-                byAdding: .second,
-                value: index * interval,
+                byAdding: .hour,
+                value: index,
                 to: currentDate)!
             let entry = SimpleEntry(
                 date: entryDate,
